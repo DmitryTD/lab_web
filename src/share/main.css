@@ -1,0 +1,170 @@
+/*  */
+
+/*
+http://htmlbook.ru/content/svoystva-teksta
+https://html5css.ru/howto/howto_css_dropdown_navbar.php
+
+*/
+
+/* 
+Здесь представлено описание оформления
+основных элементов сайта:
+ шапка
+ навигационная панель
+ подвал
+*/
+
+
+/* Оформление шапки сайта */
+header.header {
+    width: 100%;
+    /* ширина шапки */
+    background: #720481;
+    /* цвет фона */
+    height: 50px;
+    /* высота в пикселях */
+
+    font-family: 'Times New Roman', Times, serif;
+    /* Шрифт */
+    font-style: normal;
+    /* Стиль (нормальный, курсив и т.д.) */
+    font-variant: normal;
+    /* Капитель (особые пропписные буквы) */
+    font-weight: bolder;
+    /* Насыщенность шрифта */
+    font-size: 42px;
+    /* Размер текста */
+
+    line-height: normal;
+    /* Интерлиньяж (межстрочный интервал) */
+    text-decoration: none;
+    /* Оформление */
+    text-transform: none;
+    /* Эффекты */
+    text-align: center;
+    /* Выравнивание текста */
+    text-indent: 0%;
+    /* Отступ первой строки */
+
+    text-shadow: 4px 4px 4px #000000;
+    /* Тень текста */
+    color: #08e313cd;
+    /* Цвет текста */
+}
+
+
+
+/* Оформление навигационной панели */
+/* Сама панель */
+.navbar {
+    overflow: hidden;
+    /* Что делать с переполнением */
+    background-color: #000000;
+    /* Цвет фона */
+    font-family: 'Times New Roman', Times, serif;
+    /* Шрифт */
+}
+
+/* Ссылки внутри панели */
+.navbar a {
+    float: left;
+    /* Как размещать элементы */
+    font-size: 20px;
+    /* Размер шрифта */
+    color: white;
+    /* Цвет текста */
+    text-align: center;
+    /* Выравнивание */
+    padding: 14px 16px;
+    /* Отступы по вертикали и горизонтали */
+    text-decoration: none;
+    /* Оформление */
+    border: 6px outset red;
+    /* Границы */
+}
+
+/* Выпадающий список для панели */
+.dropdown {
+    float: left;
+    /* Как размещать элементы */
+    overflow: hidden;
+    /* Что делать с переполнением */
+}
+
+/* Кнопка выпадающего списка */
+.dropdown .dropbtn {
+    font-size: 20px;
+    /* Размер шрифта */
+    border: 6px outset red;
+    /* Границы */
+    outline: none;
+    /* Параметры рамки */
+    color: white;
+    /* Цвет текста */
+    padding: 14px 16px;
+    /* Отступы по вертикали и горизонтали */
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+/* Цвет при наведении */
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: red;
+}
+
+/* Элементы списка (hidden by default) */
+.dropdown-content {
+    display: none;
+    /* Отображение списка */
+    position: absolute;
+    /* Позиция (как неожиданно) */
+    background-color: #ffffff;
+    min-width: 160px;
+    /* Минимальная ширина */
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+    /*  */
+    z-index: 1;
+    /* Отображение слоев */
+}
+
+/* Элементы внутри списка */
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* Фон элементов внутри списка */
+.dropdown-content a:hover {
+    background-color: #cca8a8;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+
+/* Оформление подвала */
+/* FIX: Не правильно работает когда контента немного */
+
+footer.footer {
+    background: #720481;
+    width: auto;
+    height: 50px;
+    text-shadow: 4px 4px 4px #000000;
+    /* Тень текста */
+    color: #08e313cd;
+    /* Цвет текста */
+    padding-top: 2px;
+    border-radius: 10px;
+    border-style: double;
+    margin-top: 5px;
+}
