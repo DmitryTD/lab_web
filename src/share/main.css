@@ -9,12 +9,19 @@ https://html5css.ru/howto/howto_css_dropdown_navbar.php
 /* 
 Здесь представлено описание оформления
 основных элементов сайта:
+ общий стиль страниц
  шапка
  навигационная панель
  подвал
  текст на сайте
 */
 
+/* Общий стиль */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
 /* Оформление шапки сайта */
 header.header {
@@ -173,8 +180,8 @@ footer.footer {
 
 /* Оформление текста */
 p.p {
-    max-width: 60%;
-    padding-left: 20%;
+    max-width: 70%;
+    padding-left: 30%;
     /* Шрифт */
     font-family: 'Times New Roman', Times, serif;
     /* Стиль (нормальный, курсив и т.д.) */
