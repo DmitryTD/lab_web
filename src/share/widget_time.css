@@ -1,0 +1,16 @@
+span.span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 10vh;   /* vh - это единица измерения, равная 1% от высоты видимой области */
+    margin: 0;
+
+    text-align: center;
+    padding: 20px;
+    margin: 50px auto 100px auto;
+    background: linear-gradient(160deg, #ff0000, #0f8f06);
+    /* Градиентный фон */
+    border-radius: 10px;
+    width: 300px;
+    color: white;
+}

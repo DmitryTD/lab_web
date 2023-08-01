@@ -26,7 +26,7 @@ session_start();
     </div>
     <a href="">XML</a>
     <a href="">RSS</a>
-    <a href="">Виджеты</a>
+    <a href="widgets.php">Виджеты</a>
     <a href="partners.php">Партнёры</a>
 
     <?php
