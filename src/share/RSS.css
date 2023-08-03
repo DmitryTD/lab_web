@@ -1,0 +1,82 @@
+/* 
+Используется не RSS.php, а в functions_RSS.php
+Здесь описано офромление для RSS.php
+    Для формы добавления новостей
+    Для самих новостей
+*/
+
+
+div.add {
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F8F0E3;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+div.add .form-element {
+    margin-bottom: 20px;
+}
+
+div.add .form-element label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #5C3A27;
+}
+
+div.add .form-element input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #B28451;
+    border-radius: 3px;
+}
+
+div.add button[type="submit"] {
+    background-color: #B28451;
+    color: #F8F0E3;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+div.add button[type="submit"]:hover {
+    background-color: #5C3A27;
+}
+
+
+div.RSS {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #F8F0E3;
+    padding: 20px;
+    box-shadow: 20px 20px 100px 20px rgba(92, 58, 39, 0.1);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 8px;
+}
+
+div.RSS h1 {
+    font-size: 24px;
+    color: #5C3A27;
+    margin-bottom: 10px;
+}
+
+div.RSS p {
+    color: #5C3A27;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+div.RSS .item {
+    border-bottom: 3px solid #B28451;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+div.RSS .item:last-child {
+    border-bottom: none;
+}

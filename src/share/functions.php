@@ -10,20 +10,20 @@ https://phpabstract.ru/php/19
 // Подключение к базе данных
 function db_connect()
 {
-    define('USER', 'root');
-    define('PASSWORD', '');
-    define('HOST', 'localhost');
-    define('DATABASE', 'web_site');
+    $USER = 'root';
+    $PASSWORD = '';
+    $HOST = 'localhost';
+    $DATABASE = 'web_site';
 
     try {
-        $conn = new PDO("mysql:host=" . HOST . ";dbname=" . DATABASE, USER, PASSWORD);
+        $conn = new PDO("mysql:host=" . $HOST . ";dbname=" . $DATABASE, $USER, $PASSWORD);
     } catch (PDOException $e) {
         exit("Error: " . $e->getMessage());
     }
     return $conn;
 }
 
-// Закртие соединения с базой данных
+// Закрытие соединения с базой данных
 function db_close_connection($conn)
 {
     $conn = NULL;
@@ -78,6 +78,7 @@ function register()
     }
 }
 
+// Вход
 function authentication()
 {
     $conn = db_connect();
@@ -87,7 +88,7 @@ function authentication()
     $username = $_POST['username'];
     $password = $_POST['password'];
     // Сама проверка
-    $query = $conn->prepare("SELECT * FROM Users WHERE Name=:username AND password=:password");
+    $query = $conn->prepare("SELECT * FROM Users WHERE login=:username AND password=:password");
     $query->bindParam("username", $username, PDO::PARAM_STR);
     $query->bindParam("password", $password, PDO::PARAM_STR);
     $query->execute();
@@ -120,6 +121,9 @@ function authentication()
     }
 }
 
+// Отображения регистрации и входа в навигационной панели 
+// Если пользователь авторизирован, отображается кнопка выхода
+// Также обработка кнопки выхода
 function print_reg_auth()
 {
     // Если нажата кнопка выхода, завершаем сессию

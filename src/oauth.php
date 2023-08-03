@@ -15,7 +15,10 @@ if (isset($_POST['login'])){
 <header class="header">База данных "Картины"</header>
 <div class="navbar">
     <a href="index.php">Главная страница</a>
-
+    <a href="">XML</a>
+    <a href="RSS.php">RSS</a>
+    <a href="widgets.php">Виджеты</a>
+    <a href="partners.php">Партнёры</a>
     <div class="dropdown">
         <button class="dropbtn"> База данных
             <i class="fa fa-caret-down"></i>
@@ -29,10 +32,6 @@ if (isset($_POST['login'])){
             <a href="">Статистика</a>
         </div>
     </div>
-    <a href="">XML</a>
-    <a href="">RSS</a>
-    <a href="widgets.php">Виджеты</a>
-    <a href="partners.php">Партнёры</a>
 </div>
 
 <form method="post" action="" name="signin-form">
@@ -44,7 +43,7 @@ if (isset($_POST['login'])){
         <label>Пароль</label>
         <input type="password" name="password" required />
     </div>
-    <button type="submit" name="login" value="login">Войти</button>
+    <button type="submit" name="login" value="login" class="button">Войти</button>
     <br>
     <br>
     <p>

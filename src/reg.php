@@ -15,7 +15,10 @@ if (isset($_POST['register'])){
 <header class="header">База данных "Картины"</header>
 <div class="navbar">
     <a href="index.php">Главная страница</a>
-
+    <a href="">XML</a>
+    <a href="RSS.php">RSS</a>
+    <a href="widgets.php">Виджеты</a>
+    <a href="partners.php">Партнёры</a>
     <div class="dropdown">
         <button class="dropbtn"> База данных
             <i class="fa fa-caret-down"></i>
@@ -29,10 +32,6 @@ if (isset($_POST['register'])){
             <a href="">Статистика</a>
         </div>
     </div>
-    <a href="">XML</a>
-    <a href="">RSS</a>
-    <a href="widgets.php">Виджеты</a>
-    <a href="partners.php">Партнёры</a>
 </div>
 
 <form method="post" action="" name="signup-form">
@@ -48,7 +47,7 @@ if (isset($_POST['register'])){
         <label>Пароль</label>
         <input type="password" name="password" required />
     </div>
-    <button type="submit" name="register" value="register">Зарегестрироваться</button>
+    <button type="submit" name="register" value="register" class="button">Зарегестрироваться</button>
     <br>
     <br>
     <p>

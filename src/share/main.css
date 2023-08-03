@@ -21,186 +21,117 @@ https://html5css.ru/howto/howto_css_dropdown_navbar.php
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Оформление шапки сайта */
 header.header {
-    /* ширина шапки */
     width: 100%;
-    /* цвет фона */
-    background: #720481;
-    /* высота в пикселях */
-    height: 50px;
-
-    /* Шрифт */
-    font-family: 'Times New Roman', Times, serif;
-    /* Стиль (нормальный, курсив и т.д.) */
+    background: #5C3A27;
+    height: 60px;
     font-style: normal;
-    /* Капитель (особые пропписные буквы) */
     font-variant: normal;
-    /* Насыщенность шрифта */
-    font-weight: bolder;
-    /* Размер текста */
-    font-size: 42px;
-    
-    /* Интерлиньяж (межстрочный интервал) */
-    line-height: normal;
-    /* Оформление */
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 60px;
     text-decoration: none;
-    /* Эффекты */
-    text-transform: none;
-    /* Выравнивание текста */
+    text-transform: uppercase;
     text-align: center;
-    /* Отступ первой строки */
-    text-indent: 0%;
-    
-    /* Тень текста */
-    text-shadow: 4px 4px 4px #000000;
-    /* Цвет текста */
-    color: #08e313cd;
+    text-shadow: 2px 2px 2px #000000;
+    color: #F8F0E3;
 }
-
-
 
 /* Оформление навигационной панели */
-/* Сама панель */
 .navbar {
-    /* Что делать с переполнением */
     overflow: hidden;
-    /* Цвет фона */
-    background-color: #000000;
-    /* Шрифт */
-    font-family: 'Times New Roman', Times, serif;
+    background-color: #5C3A27;
 }
 
-/* Ссылки внутри панели */
 .navbar a {
-    /* Как размещать элементы */
     float: left;
-    /* Размер шрифта */
-    font-size: 20px;
-    /* Цвет текста */
-    color: white;
-    /* Выравнивание */
+    font-size: 16px;
+    color: #F8F0E3;
     text-align: center;
-    /* Отступы по вертикали и горизонтали */
     padding: 14px 16px;
-    /* Оформление */
     text-decoration: none;
-    /* Границы */
-    border: 6px outset red;
+    border-right: 1px solid #F8F0E3;
 }
 
-/* Выпадающий список для панели */
+.navbar a:last-child {
+    border-right: none;
+}
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
+    background-color: #B28451;
+}
+
 .dropdown {
-    /* Как размещать элементы */
     float: left;
-    /* Что делать с переполнением */
     overflow: hidden;
 }
 
-/* Кнопка выпадающего списка */
 .dropdown .dropbtn {
-    /* Размер шрифта */
-    font-size: 20px;
-    /* Границы */
-    border: 6px outset red;
-    /* Параметры рамки */
+    font-size: 16px;
+    border: none;
     outline: none;
-    /* Цвет текста */
-    color: white;
-    /* Отступы по вертикали и горизонтали */
+    color: #F8F0E3;
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
     margin: 0;
 }
 
-/* Цвет при наведении */
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-    background-color: red;
-}
-
-/* Элементы списка (hidden by default) */
 .dropdown-content {
-    /* Отображение списка */
     display: none;
-    /* Позиция (как неожиданно) */
     position: absolute;
-    background-color: #ffffff;
-    /* Минимальная ширина */
+    background-color: #F8F0E3;
     min-width: 160px;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
-    /* Отображение слоев */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    
 }
 
-/* Элементы внутри списка */
 .dropdown-content a {
     float: none;
-    color: black;
+    color: #5C3A27;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
 }
 
-/* Фон элементов внутри списка */
 .dropdown-content a:hover {
-    background-color: #cca8a8;
+    background-color: #D6C1A3;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-
-
-
 /* Оформление подвала */
-/* FIX: Не правильно работает когда контента немного */
-
 footer.footer {
-    background: #720481;
+    background: #5C3A27;
     width: auto;
     height: 50px;
-    /* Тень текста */
-    text-shadow: 4px 4px 4px #000000;
-    /* Цвет текста */
-    color: #08e313cd;
+    text-shadow: 2px 2px 2px #000000;
+    color: #F8F0E3;
     padding-top: 2px;
     border-radius: 10px;
     border-style: double;
     margin-top: 5px;
 }
 
-
 /* Оформление текста */
 p.p {
     max-width: 70%;
     padding-left: 30%;
-    /* Шрифт */
-    font-family: 'Times New Roman', Times, serif;
-    /* Стиль (нормальный, курсив и т.д.) */
     font-style: normal;
-    /* Капитель (особые пропписные буквы) */
     font-variant: normal;
-    /* Насыщенность шрифта */
     font-weight: normal;
-    /* Размер текста */
     font-size: 22px;
-    
-    /* Интерлиньяж (межстрочный интервал) */
     line-height: normal;
-    /* Оформление */
     text-decoration: none;
-    /* Эффекты */
     text-transform: none;
-    /* Выравнивание текста */
     text-align: center;
-    /* Отступ первой строки */
     text-indent: 0%;
 }
