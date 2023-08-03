@@ -15,7 +15,7 @@ if (isset($_POST['login'])){
 <header class="header">База данных "Картины"</header>
 <div class="navbar">
     <a href="index.php">Главная страница</a>
-    <a href="">XML</a>
+    <a href="xml.php">XML</a>
     <a href="RSS.php">RSS</a>
     <a href="widgets.php">Виджеты</a>
     <a href="partners.php">Партнёры</a>

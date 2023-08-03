@@ -1,5 +1,6 @@
 <?php
 include 'share/functions.php';
+include 'share/functions_XML.php';
 session_start();
 ?>
 
@@ -33,23 +34,35 @@ session_start();
     ?>
 </div>
 
-<h1 style=text-align:center>Наши партнёры</h1>
-<br> <br>
+<h1 style="text-align:center;">Новые картины</h1>
 
-<p class="p">
-    <img width=500px, src="./images/logo1.png"> <br>
-    Государственная Третьяковская галерея <br>
-    Адрес: Россия, Москва, улица Крымский Вал, 10 <br>
-    Телефон: +7 991 298-21-21, +7 495 957-07-27, +7 495 951-36-66 <br>
-    Сайт: <a target="_blank" href="https://www.tretyakovgallery.ru/">tretyakovgallery.ru</a> <br>
-</p>
+<input type="text" id="search" onkeyup="searchTable()" placeholder="Поиск по таблице..">
+<script>
+function searchTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementsByTagName("table")[0];
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    for (j = 0; j < td.length; j++) {
+      if (td[j]) {
+        txtValue = td[j].textContent || td[j].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+          break;
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+}
+</script>
 
-<p class="p">
-    <img width=500px, src="./images/logo2.png"> <br>
-    Эрмитаж <br>
-    Адрес: Россия, Санкт-Петербург, Дворцовая набережная, 38 <br>
-    Телефон: +7 812 710-90-79 <br>
-    Сайт: <a target="_blank" href="https://www.hermitagemuseum.org">hermitagemuseum.org</a> <br>
-</p>
+<?php
+show_query();
+?>
 
 <footer class="footer">© 2023 Михальченко Дмитрий ИВТ-Б20 ИАТЭ НИЯУ МИФИ</footer>

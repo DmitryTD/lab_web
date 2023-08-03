@@ -18,8 +18,6 @@ function add_news()
     $author = $_SESSION["name"];
     $date = date('d.m.Y H:i:s');
 
-
-
     // Если загружен файл, переносим его в директорию и сохраняем путь
     if (is_uploaded_file($_FILES['Media']['tmp_name'])) {
         // Проверяем файл на соответсвие формату
@@ -111,8 +109,6 @@ function generate_xml()
             $description->appendChild($cdata);
             $item->appendChild($description);
         }
-
-        // <img width=500px, src="./images/logo2.png">
 
         $text = $dom->createElement('description', $row['Text']);
         $item->appendChild($text);

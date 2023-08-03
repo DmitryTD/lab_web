@@ -16,7 +16,7 @@ if (isset($_POST['add_news'])) {
 <header class="header">База данных "Картины"</header>
 <div class="navbar">
     <a href="index.php">Главная страница</a>
-    <a href="">XML</a>
+    <a href="xml.php">XML</a>
     <a href="RSS.php">RSS</a>
     <a href="widgets.php">Виджеты</a>
     <a href="partners.php">Партнёры</a>
@@ -75,9 +75,9 @@ HTML;
                 <input type="text" name="Text" required />
             </div>
             <div class="form-element">
-                <label>Прикрепить медиа-файл</label> <br>
+                <label>Прикрепить медиа-файл (необязательно)</label> <br>
                 <input type="file" name="Media" />
-                <p>Поддерживаемые форматы: jpg, jpeg, gif</p>
+                <p>Поддерживаемые форматы: jpg, jpeg, png, gif</p>
             </div>
         
         <button type="submit" name="add_news" value="">Добавить</button>
