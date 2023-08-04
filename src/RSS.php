@@ -30,7 +30,7 @@ if (isset($_POST['add_news'])) {
             <a href="">Поиск1</a>
             <a href="">Поиск2</a>
             <a href="">Поиск3</a>
-            <a href="">Статистика</a>
+            <a href="statistics.php">Статистика</a>
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="share/XML.css">
+<link rel="stylesheet" href="share/table_and_search.css">
 <?php
 // Здесь представлены функции для работы XML.php
 // Генерация XML файла
@@ -45,6 +45,8 @@ function show_query()
     LIMIT 15;");
 
     $query->execute();
+
+    db_close_connection($conn);
 
     // Сохраняем результат в массив
     $rows = $query->fetchAll(PDO::FETCH_ASSOC);

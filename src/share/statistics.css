@@ -1,0 +1,13 @@
+/* CSS для статистики */
+p.statistics {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #5C3A27;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #F8F0E3;
+    padding: 10px;
+    border-radius: 5px;
+    width: 50%;
+    margin: 20px auto;
+}

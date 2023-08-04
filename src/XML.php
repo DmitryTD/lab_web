@@ -25,7 +25,7 @@ session_start();
             <a href="">Поиск1</a>
             <a href="">Поиск2</a>
             <a href="">Поиск3</a>
-            <a href="">Статистика</a>
+            <a href="statistics.php">Статистика</a>
         </div>
     </div>
 
@@ -34,7 +34,7 @@ session_start();
     ?>
 </div>
 
-<h1 style="text-align:center;">Новые картины</h1>
+<h1 style="text-align:center;">Самые новые картины по году написания</h1>
 
 <input type="text" id="search" onkeyup="searchTable()" placeholder="Поиск по таблице..">
 <script>
