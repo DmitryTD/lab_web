@@ -1,12 +1,10 @@
-<!--   
-
+<?php
+ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/../session'));
+session_start();
+/*
 https://www.internet-technologies.ru/articles/sozdanie-form-registracii-i-avtorizacii-na-php.html
 https://phpabstract.ru/php/19
-
-
--->
-
-<?php
+*/
 // Подключение к базе данных
 function db_connect()
 {
@@ -106,7 +104,6 @@ function authentication()
         // Перенаправление на главную страницу, если авторизация успешна
     } else {
         //Открытие сессии (для сохранения имени пользователя)
-        session_start();
         // Сохраняем в сессию имя пользователя
         $_SESSION['name'] = $result['Name'];
         echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
@@ -129,10 +126,11 @@ function print_reg_auth()
     // Если нажата кнопка выхода, завершаем сессию
     if (isset($_POST['exit'])) {
         session_destroy();
+        header("Refresh:0");
     }
 
-    session_start();
-    if (!$_SESSION) {
+
+    if (!isset($_SESSION['name'])) {
         echo '<a href="oauth.php" , style=float:right>Вход</a>';
         echo '<a href="reg.php" , style=float:right>Регистрация</a>';
     } else {

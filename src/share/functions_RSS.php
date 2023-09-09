@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="share/RSS.css">
+<link rel="stylesheet" href="share/RSS_and_add.css">
 <?php
 /*
 Sponsored by ChatGPT

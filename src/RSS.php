@@ -1,43 +1,21 @@
 <?php
 include 'share/functions.php';
 include 'share/functions_RSS.php';
-session_start();
 
 if (isset($_POST['add_news'])) {
     add_news();
 }
 ?>
 
+<meta charset="UTF-8" />
+
 <!--   -->
-<!-- Подключаем основной стиль  -->
-<link rel="stylesheet" href="share/main.css">
+<title>БД Картины | RSS</title>
+<link rel="stylesheet" href="share/RSS_and_add.css">
 
-
-<header class="header">База данных "Картины"</header>
-<div class="navbar">
-    <a href="index.php">Главная страница</a>
-    <a href="xml.php">XML</a>
-    <a href="RSS.php">RSS</a>
-    <a href="widgets.php">Виджеты</a>
-    <a href="partners.php">Партнёры</a>
-    <div class="dropdown">
-        <button class="dropbtn"> База данных
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="about.php">О БД</a>
-            <a href="">Добавление данных</a>
-            <a href="">Поиск1</a>
-            <a href="">Поиск2</a>
-            <a href="">Поиск3</a>
-            <a href="statistics.php">Статистика</a>
-        </div>
-    </div>
-
-    <?php
-    print_reg_auth();
-    ?>
-</div>
+<?php
+include 'share/navbar.php';
+?>
 
 <h1 style=text-align:center>Новости</h1>
 <br> <br>
