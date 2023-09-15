@@ -52,7 +52,9 @@ include 'share/navbar.php';
 <?php
 
 include 'share/widget_currencyConverter.php';
-include 'share/widget_calc.php'
+include 'share/widget_calc.php';
+include 'share/widget_weather.php';
+
 ?>
 
 <style>
