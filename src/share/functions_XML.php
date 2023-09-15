@@ -37,7 +37,8 @@ function show_query()
     $conn = db_connect();
 
     // Сам запрос
-    $query = $conn->prepare("WITH Last15 AS (
+    $query = $conn->prepare("SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name 
+    FROM (
         SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name, Paintings.id
         FROM Paintings 
         LEFT JOIN Artists ON Paintings.Artist_id = Artists.Artist_id 
@@ -45,10 +46,7 @@ function show_query()
         LEFT JOIN Organizations ON Paintings.Organization_id = Organizations.Organization_id 
         ORDER BY Paintings.id DESC
         LIMIT 15
-    )
-    
-    SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name 
-    FROM Last15 
+    ) AS Last15 
     ORDER BY Title ASC;");
 
     $query->execute();
