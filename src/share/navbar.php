@@ -9,6 +9,19 @@ echo <<<HTML
     <a href="RSS.php">RSS</a>
     <a href="widgets.php">Виджеты</a>
     <a href="partners.php">Партнёры</a>
+
+    <div class="dropdown">
+        <button class="dropbtn"> Сервисы
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="widgets.php">Виджеты</a>
+            <a href="weather.php">Погода</a>
+            <a href="converter.php">Конвертер валют</a>
+            <a href="map.php">Карта</a>
+        </div>
+    </div>
+
     <div class="dropdown">
         <button class="dropbtn"> База данных
             <i class="fa fa-caret-down"></i>
