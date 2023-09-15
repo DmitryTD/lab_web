@@ -114,7 +114,7 @@ echo $form;
             FROM Paintings LEFT JOIN Artists ON Paintings.Artist_id = Artists.Artist_id \
             LEFT JOIN Technics ON Paintings.Technic_id = Technics.Technic_id \
             LEFT JOIN Organizations ON Paintings.Organization_id = Organizations.Organization_id \
-            WHERE Century = " + century + " AND Technic_Name = \"" + technic + "\""
+            WHERE Century = " + century + " AND Technic_Name = \"" + technic + "\"" + "ORDER BY Paintings.Title ASC"
             });
 
             var rows = JSON.parse(response2);

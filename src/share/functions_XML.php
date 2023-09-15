@@ -37,12 +37,19 @@ function show_query()
     $conn = db_connect();
 
     // Сам запрос
-    $query = $conn->prepare("SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name 
-    FROM Paintings LEFT JOIN Artists ON Paintings.Artist_id = Artists.Artist_id 
-    LEFT JOIN Directions ON Paintings.Direction_id = Directions.Direction_id 
-    LEFT JOIN Organizations ON Paintings.Organization_id = Organizations.Organization_id 
-    ORDER BY Year_ DESC 
-    LIMIT 15;");
+    $query = $conn->prepare("WITH Last15 AS (
+        SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name, Paintings.id
+        FROM Paintings 
+        LEFT JOIN Artists ON Paintings.Artist_id = Artists.Artist_id 
+        LEFT JOIN Directions ON Paintings.Direction_id = Directions.Direction_id 
+        LEFT JOIN Organizations ON Paintings.Organization_id = Organizations.Organization_id 
+        ORDER BY Paintings.id DESC
+        LIMIT 15
+    )
+    
+    SELECT Title, Era, Year_, Full_name, Direction_Name, Organization_Name 
+    FROM Last15 
+    ORDER BY Title ASC;");
 
     $query->execute();
 

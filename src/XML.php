@@ -9,7 +9,7 @@ include 'share/functions_XML.php';
 include 'share/navbar.php';
 ?>
 
-<h1 style="text-align:center;">Самые новые картины по году написания</h1>
+<h1 style="text-align:center;">Последние добавленные картины</h1>
 
 <input type="text" id="search" onkeyup="searchTable()" placeholder="Поиск по таблице..">
 <script>
