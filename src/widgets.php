@@ -49,6 +49,11 @@ include 'share/navbar.php';
     clock();
 </script>
 
+<?php
+
+include 'share/widget_currencyConverter.php';
+
+?>
 
 <style>
       /* Задаём стили для контейнера карты */
