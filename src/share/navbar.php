@@ -7,8 +7,8 @@ echo <<<HTML
     <a href="index.php">Главная страница</a>
     <a href="XML.php">XML</a>
     <a href="RSS.php">RSS</a>
-    <a href="widgets.php">Виджеты</a>
     <a href="partners.php">Партнёры</a>
+    <a href="api.php">API</a>
 
     <div class="dropdown">
         <button class="dropbtn"> Сервисы
