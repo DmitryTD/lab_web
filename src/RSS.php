@@ -5,6 +5,10 @@ include 'share/functions_RSS.php';
 if (isset($_POST['add_news'])) {
     add_news();
 }
+
+if (isset($_POST['add_RSS'])) {
+    add_RSS();
+}
 ?>
 
 <meta charset="UTF-8" />
@@ -32,20 +36,16 @@ if (!$_SESSION) {
 HTML;
 
     // Если пользователь авторизирован
-// предоставляем форму для добавления новости
+    // предоставляем форму для добавления новости
 } else {
     echo <<<HTML
     <form method="post" action="" name="add_news" enctype="multipart/form-data">
         <div class="add">
 
             <div class="form-element">
+                <label>Добавить новость<label> <br>
                 <label>Заголовок</label> <br>
                 <input type="text" name="Title" required />
-            </div>
-
-            <div class="form-element">
-                <label>Ссылка на источник (необязательно)</label> <br>
-                <input type="text" name="Source"/>
             </div>
 
             <div class="form-element">
@@ -62,10 +62,33 @@ HTML;
         </div>
     </form>
     HTML;
+
+    //Форма для добавления сторонней RSS ленты
+    echo <<<HTML
+    <br>
+    <form method="post" action="" name="add_RSS" enctype="multipart/form-data">
+        <div class="add">
+
+            <div class="form-element">
+                <label>Добавить стороннюю RSS ленту<label> <br>
+                <label>Название ленты</label> <br>
+                <input type="text" name="RSS_Name" required />
+            </div>
+            
+            <div class="form-element">
+                <label>URL</label> <br>
+                <input type="url" name="RSS_URL" required pattern="https?://.+" title="Введите корректный URL">
+            </div>
+        
+        <button type="submit" name="add_RSS" value="">Добавить</button>
+        </div>
+    </form>
+    HTML;
 }
 
 generate_xml();
 displayRSS();
+getFeeds();
 ?>
 
 

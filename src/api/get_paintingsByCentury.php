@@ -37,6 +37,8 @@ try {
     } else {
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
     }
+    
+    db_close_connection($conn);
 
 } catch (PDOException $e) {
     echo json_encode(["error" => $e->getMessage()]);

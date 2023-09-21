@@ -28,7 +28,8 @@ div.add .form-element label {
     color: #5C3A27;
 }
 
-div.add .form-element input[type="text"] {
+div.add .form-element input[type="text"],
+div.add .form-element input[type="url"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #B28451;

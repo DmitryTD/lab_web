@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="share/RSS_and_add.css">
 <?php
 /*
-Sponsored by ChatGPT
-
 Здесь представлены функции для работы с RSS лентой
 */
 
@@ -127,6 +125,7 @@ function displayRSS()
     $rss = simplexml_load_file('./RSS/rss.xml');
 
     echo "<div class='RSS'>";
+    echo "<h1 style='text-align: center;'> Новости проекта </h1>";
     foreach ($rss->channel->item as $item) {
         echo "<div class='item'>";
         echo "<h1>" . $item->title . "</h1>";
@@ -144,19 +143,95 @@ function displayRSS()
 
 // Для получения новостей из другой RSS ленты
 // По итогу не используется, но оставил на всякий случай
+// UPD: Все же пришлось доработать и использовать :)
 function getFeeds()
 {
-    $url = "https://tass.ru/rss/anews.xml?sections=MjQ%3D";
-    $content = file_get_contents($url);
-    $items = new SimpleXmlElement($content);
+    $conn = db_connect();
 
-    print "<ul>";
+    // Выполните SQL-запрос для выборки данных из таблицы
+    $query = $conn->query("SELECT * FROM extern_RSS LIMIT 1");
 
-    foreach ($items->channel->item as $item) {
-        print "<li><a href = '{$item->link}' title = '$item->title'>" .
-            $item->title . "</a> - " . $item->description . "</li>";
+    // Проверьте, есть ли записи
+    if ($query->rowCount() > 0) {
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        $RSS_Name = $row['name'];
+        $url = $row['URL'];
+
+        $content = file_get_contents($url);
+        $items = new SimpleXmlElement($content);
+
+        echo "<div class='RSS'>";
+        echo "<h1 style='text-align: center;'>" . $RSS_Name . "</h1>";
+        $count = 0;
+
+        // Массив исключений
+        $exclusions = ['guid'];
+        foreach ($items->channel->item as $item) {
+            if ($count >= 10) {
+                break;
+            }
+
+            echo "<div class='item'>";
+
+            foreach ($item as $key => $value) {
+                if (in_array($key, $exclusions)) {
+                    continue;
+                }
+
+                if ($key === 'link') {
+                    echo "<p><a href='" . $value . "'>" . $value . "</a></p>";
+                } else if ($key === 'title') {
+                    echo "<h1>" . $value . "</h1>";
+                } else {
+                    echo "<p>" . ucfirst($key) . ": " . $value . "</p>";
+                }
+            }
+
+            echo "</div>";
+
+            $count++;
+        }
+
+        echo "</div>";
     }
 
-    print "</ul>";
+    db_close_connection($conn);
 }
+
+
+
+function add_RSS()
+{
+    $conn = db_connect();
+    // Берем данные из формы на сайте
+    $RSS_Name = $_POST['RSS_Name'];
+    $RSS_URL = $_POST['RSS_URL'];
+
+    // Удаляем все записи в таблице
+    $conn->exec("DELETE FROM extern_RSS");
+
+    // Запрос на добавление записи
+    $query = $conn->prepare("INSERT INTO extern_RSS(name,URL) VALUES (:RSS_Name,:RSS_URL)");
+    $query->bindParam("RSS_Name", $RSS_Name, PDO::PARAM_STR);
+    $query->bindParam("RSS_URL", $RSS_URL, PDO::PARAM_STR);
+
+    $result = $query->execute();
+    // Обрабатываем результат
+    if ($result) {
+        echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+        echo '<script>';
+        echo 'window.onload = function() {';
+        echo '  Swal.fire("Успешно!", "Лента добавлена", "success").then(function() {';
+        echo '  });';
+        echo '}';
+        echo '</script>';
+        db_close_connection($conn);
+    } else {
+        echo '<script language="javascript">';
+        echo 'alert("Неверные данные")';
+        echo '</script>';
+        db_close_connection($conn);
+    }
+}
+
 ?>
