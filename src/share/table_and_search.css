@@ -1,5 +1,5 @@
 /* CSS для таблицы */
-table {
+table.table {
     width: 80%;
     border-collapse: collapse;
     margin: 50px auto;

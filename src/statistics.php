@@ -9,6 +9,7 @@ include 'share/functions_statistics.php';
 include 'share/navbar.php';
 ?>
 
+<h1 style=text-align:center>Статистика</h1>
 
 <?php
 show_statistics();

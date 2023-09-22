@@ -33,7 +33,7 @@ function show_statistics()
     ORDER BY Val DESC;");
     $query->execute();
 
-    echo "<table style='margin-top: 0;'>";
+    echo "<table class=\"table\" style='margin-top: 0;'>";
     echo "<tr>";
     echo "<th>Музей</th>";
     echo "<th>Количество</th>";
@@ -46,7 +46,7 @@ function show_statistics()
         echo "<td>" . $row['val'] . "</td>";
         echo "</tr>";
     }
-    echo "</table>";
+    echo "</table >";
 
     db_close_connection($conn);
 }

@@ -42,7 +42,7 @@ echo $form;
 </style>
 
 
-<table id="yourTableId">
+<table class="table" id="yourTableId">
     <thead>
         <tr>
             <th>Название</th>
