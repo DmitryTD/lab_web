@@ -58,19 +58,21 @@ HTML;
             <input type="text" name="PaintingName" required />
         </div>
 
-        <div class="form-element">
-            <label>Эпоха</label> <br>
-            <input type="text" name="Era" required />
-        </div>
+        <div class="form-group">
+            <div class="form-element">
+                <label>Эпоха</label> <br>
+                <input type="text" name="Era" required />
+            </div>
 
-        <div class="form-element">
-            <label>Век</label> <br>
-            <input type="text" name="Century" required />
-        </div>
+            <div class="form-element">
+                <label>Век</label> <br>
+                <input type="text" name="Century" required />
+            </div>
 
-        <div class="form-element">
-            <label>Год</label> <br>
-            <input type="text" name="Year" required />
+            <div class="form-element">
+                <label>Год</label> <br>
+                <input type="text" name="Year" required />
+            </div>
         </div>
 HTML;
 

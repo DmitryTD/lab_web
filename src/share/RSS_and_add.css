@@ -18,12 +18,12 @@ div.add {
 }
 
 div.add .form-element {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 div.add .form-element label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     font-weight: bold;
     color: #5C3A27;
 }
@@ -31,14 +31,14 @@ div.add .form-element label {
 div.add .form-element input[type="text"],
 div.add .form-element input[type="url"] {
     width: 100%;
-    padding: 10px;
+    padding: 4px;
     border: 1px solid #B28451;
     border-radius: 3px;
 }
 
 div.add .form-element textarea {
     width: 100%;
-    padding: 10px;
+    padding: 3px;
     border: 1px solid #B28451;
     border-radius: 3px;
     resize: none;
@@ -56,6 +56,15 @@ div.add button[type="submit"] {
 
 div.add button[type="submit"]:hover {
     background-color: #5C3A27;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.form-element {
+    margin-right: 20px;
 }
 
 
@@ -98,7 +107,7 @@ div.RSS .item:last-child {
     display: flex;
     justify-content: flex-start;
     align-items: center; /* добавлено для выравнивания по вертикали */
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .form-element {
@@ -111,7 +120,7 @@ div.RSS .item:last-child {
 
 .form-element select {
     width: 100%;
-    padding: 10px;
+    padding: 3px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -126,17 +135,17 @@ a.add {
     background-color: #B28451;
     color: #F8F0E3;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 20px;
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
     border-radius: 3px;
-    margin-left: 20px; /* отступ между кнопкой и select */
+    margin-left: 5px; /* отступ между кнопкой и select */
     text-decoration: none; /* добавлено чтобы убрать подчеркивание */
 
     /* Это уже просто костыль, чтобы кнопка была наравне со списком */
     position: relative;
-    top: 0.85em; /* смещает кнопку вниз на четверть высоты строки */
+    top: 1.20em;
 }
 
 a.add:hover {
