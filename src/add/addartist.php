@@ -49,7 +49,7 @@ HTML;
 
         <div class="form-element">
             <label>Имя</label> <br>
-            <input type="text" name="Artist_Name" required />
+            <input type="text" name="Artist_Name" required placeholder="Васнецов Виктор Михайлович" />
         </div>
 
         <div class="form-element">

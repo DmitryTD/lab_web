@@ -45,22 +45,22 @@ HTML;
 
         <div class="form-element">
             <label>Название</label> <br>
-            <input type="text" name="Organization_Name" required />
+            <input type="text" name="Organization_Name" required placeholder="Государственный Эрмитаж" />
         </div>
 
         <div class="form-element">
             <label>Адрес</label> <br>
-            <input type="text" name="Address" required />
+            <input type="text" name="Address" required placeholder="Санкт-Петербург, Дворцовая наб., 34" />
         </div>
 
         <div class="form-element">
             <label>Телефон</label> <br>
-            <input type="text" name="Tel" required />
+            <input type="text" name="Tel" required placeholder="+7 (812) 710-90-79" />
         </div>
 
         <div class="form-element">
             <label>Email</label> <br>
-            <input type="text" name="Email" required />
+            <input type="text" name="Email" required placeholder="chancery@hermitage.ru"/>
         </div>
 HTML;
 

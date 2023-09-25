@@ -17,7 +17,7 @@ function searchTable() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("search");
   filter = input.value.toUpperCase();
-  table = document.getElementsByTagName("table")[0];
+  table = document.getElementById("XML_table");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td");

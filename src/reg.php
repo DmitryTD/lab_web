@@ -28,7 +28,7 @@ include 'share/navbar.php';
         <label>Пароль</label>
         <input type="password" name="password" required />
     </div>
-    <button type="submit" name="register" value="register" class="button">Зарегестрироваться</button>
+    <button type="submit" name="register" value="register" class="button">Зарегистрироваться</button>
     <br>
     <br>
     <p>

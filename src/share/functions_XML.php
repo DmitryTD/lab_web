@@ -59,7 +59,7 @@ function show_query()
     echo '<div style="margin-left: 10%; margin-bottom: 0;"><a href="./XML/paintings.xml" target="_blank">Посмотреть XML-файл</a></div>'; 
 
     // Вывод данных в таблицу
-    echo "<table class=\"table\" style='margin-top: 0;'>";
+    echo "<table id=\"XML_table\" class=\"table\" style='margin-top: 0;'>";
     echo "<tr>";
     echo "<th>Название</th>";
     echo "<th>Эпоха</th>";

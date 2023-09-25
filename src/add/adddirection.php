@@ -44,7 +44,7 @@ HTML;
 
         <div class="form-element">
             <label>Название направления</label> <br>
-            <input type="text" name="Direction_Name" required />
+            <input type="text" name="Direction_Name" required placeholder="Пейзаж" />
         </div>
 
         <div class="form-element">
