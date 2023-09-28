@@ -63,7 +63,7 @@ function generate_xml()
 {
     $conn = db_connect();
     // Выбрать данные из таблицы
-    $sql = "SELECT * FROM RSS ORDER BY Date DESC";
+    $sql = "SELECT * FROM RSS ORDER BY id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
@@ -120,6 +120,8 @@ function generate_xml()
 }
 
 // Отображаем ленту на сайте
+// UPD: т.к. нужна одна лента, то весь вывод теперь делает getFeeds
+/*
 function displayRSS()
 {
     $rss = simplexml_load_file('./RSS/rss.xml');
@@ -140,79 +142,74 @@ function displayRSS()
     }
     echo "</div>";
 }
+*/
 
 // Для получения новостей из другой RSS ленты
 // По итогу не используется, но оставил на всякий случай
 // UPD: Все же пришлось доработать и использовать :)
+// UPD2: Пришлось ещё раз доработать, теперь эта функция выводит объединенную RSS ленту
 function getFeeds()
 {
-    $conn = db_connect();
+    $url = 'RSS/mergedRSS.xml';
 
-    // Выполните SQL-запрос для выборки данных из таблицы
-    $query = $conn->query("SELECT * FROM extern_RSS LIMIT 1");
+    $content = file_get_contents($url);
+    $items = new SimpleXmlElement($content);
 
-    // Проверьте, есть ли записи
-    if ($query->rowCount() > 0) {
-        $row = $query->fetch(PDO::FETCH_ASSOC);
-        $RSS_Name = $row['name'];
-        $url = $row['URL'];
+    echo "<div class='RSS'>";
+    $count = 0;
 
-        $content = file_get_contents($url);
-        $items = new SimpleXmlElement($content);
+    // Массив исключений
+    $exclusions = ['guid'];
+    foreach ($items->channel->item as $item) {
+        if ($count >= 10) {
+            break;
+        }
 
-        echo "<div class='RSS'>";
-        echo "<h1 style='text-align: center;'>" . $RSS_Name . "</h1>";
-        $count = 0;
+        echo "<div class='item'>";
 
-        // Массив исключений
-        $exclusions = ['guid'];
-        foreach ($items->channel->item as $item) {
-            if ($count >= 10) {
-                break;
+        foreach ($item as $key => $value) {
+            if (in_array($key, $exclusions)) {
+                continue;
             }
 
-            echo "<div class='item'>";
-
-            foreach ($item as $key => $value) {
-                if (in_array($key, $exclusions)) {
-                    continue;
-                }
-
-                if ($key === 'link') {
-                    echo "<p><a href='" . $value . "'>" . $value . "</a></p>";
-                } else if ($key === 'title') {
-                    echo "<h1>" . $value . "</h1>";
-                } else {
-                    echo "<p>" . ucfirst($key) . ": " . $value . "</p>";
-                }
+            if ($key === 'link') {
+                echo "<p><a href='" . $value . "'>" . $value . "</a></p>";
+            } else if ($key === 'title') {
+                echo "<h1>" . $value . "</h1>";
+            } else if ($key === 'pubDate') {
+                echo "<p>" . "Новость от" . ": " . $value . "</p>";
+            } else if ($key === 'description') {
+                echo "<p>" . $value . "</p>";
+            } else if ($key === 'category') {
+                echo "<p>" . "Категория: " . $value . "</p>";
+            } else if ($key === 'media') {
+                echo "<p>" . $value . "</p>";
+            } else if ($key === 'author') {
+                echo "<p>" . "Автор: " . $value . "</p>";
             }
-
-            echo "</div>";
-
-            $count++;
         }
 
         echo "</div>";
+
+        $count++;
     }
 
-    db_close_connection($conn);
+    echo "</div>";
 }
 
 
-
+// Добавление сторонней ленты на сайт
 function add_RSS()
 {
     $conn = db_connect();
     // Берем данные из формы на сайте
-    $RSS_Name = $_POST['RSS_Name'];
     $RSS_URL = $_POST['RSS_URL'];
 
     // Удаляем все записи в таблице
     $conn->exec("DELETE FROM extern_RSS");
 
     // Запрос на добавление записи
-    $query = $conn->prepare("INSERT INTO extern_RSS(name,URL) VALUES (:RSS_Name,:RSS_URL)");
-    $query->bindParam("RSS_Name", $RSS_Name, PDO::PARAM_STR);
+    $query = $conn->prepare("INSERT INTO extern_RSS(URL) VALUES (:RSS_URL)");
     $query->bindParam("RSS_URL", $RSS_URL, PDO::PARAM_STR);
 
     $result = $query->execute();
@@ -234,4 +231,39 @@ function add_RSS()
     }
 }
 
+//Объединение своей ленты и внешней
+function mergeRSSFeeds()
+{
+    $conn = db_connect();
+    // Выполните SQL-запрос для выборки данных из таблицы
+    $query = $conn->query("SELECT * FROM extern_RSS LIMIT 1");
+
+    if ($query->rowCount() > 0) {
+        // Загрузим локальную RSS ленту
+        $localFeed = simplexml_load_file("./RSS/rss.xml");
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        $externalRSSUrl = $row['URL'];
+        // Загрузим стороннюю RSS ленту
+        $externalFeed = simplexml_load_file($externalRSSUrl);
+        db_close_connection($conn);
+
+        $count = 0;
+        // Объединим элементы из двух лент
+        foreach ($externalFeed->channel->item as $item) {
+            if ($count >= 5) {
+                break;
+            }
+            $newItem = $localFeed->channel->addChild('item');
+            foreach ($item->children() as $child) {
+                $newItem->addChild($child->getName(), htmlspecialchars($child));
+            }
+            $count++;
+        }
+
+
+        // Сохраняем результат в файл
+        $localFeed->asXML("./RSS/mergedRSS.xml");
+    }
+}
 ?>

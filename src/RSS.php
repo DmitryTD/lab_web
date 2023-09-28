@@ -71,8 +71,6 @@ HTML;
 
             <div class="form-element">
                 <label>Добавить стороннюю RSS ленту<label> <br>
-                <label>Название ленты</label> <br>
-                <input type="text" name="RSS_Name" required />
             </div>
             
             <div class="form-element">
@@ -87,7 +85,7 @@ HTML;
 }
 
 generate_xml();
-displayRSS();
+mergeRSSFeeds();
 getFeeds();
 ?>
 
