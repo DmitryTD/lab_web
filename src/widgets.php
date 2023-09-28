@@ -42,6 +42,7 @@ include 'share/navbar.php';
 
 <br> <br>
 
+<h2 style=text-align:center>Текущее время</h2>
 <span class="span" id="doc_time">
     Дата и время
 </span>
@@ -49,6 +50,7 @@ include 'share/navbar.php';
     clock();
 </script>
 
+<h2 style=text-align:center>Калькулятор</h2>
 <?php
 include 'share/widget_calc.php';
 ?>
