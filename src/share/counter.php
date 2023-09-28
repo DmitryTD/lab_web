@@ -2,6 +2,17 @@
 echo<<<HTML
 <head>
 
+<style>
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+</style>
+
+<div class="container">
+
 <!-- Yandex.Metrika informer -->
 <a href="https://metrika.yandex.ru/stat/?id=94951314&amp;from=informer"
 target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/94951314/3_1_EC8620FF_CC6600FF_0_pageviews"
@@ -27,5 +38,7 @@ style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" tit
 <!-- /Yandex.Metrika counter -->
 
 </head>
+</div>
+
 HTML;
 ?>
