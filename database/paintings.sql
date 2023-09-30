@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 09 2023 г., 19:22
+-- Время создания: Сен 30 2023 г., 19:31
 -- Версия сервера: 8.0.30
 -- Версия PHP: 7.4.30
 
@@ -104,6 +104,17 @@ INSERT INTO `Exhibitions` (`Exhibition_id`, `Exhibition_Name`, `Theme`, `Start_d
 (3, 'Тихие пейзажи', 'Живопись Витольда Каэтановича Бялыницкого-Бирули', '2023-03-03 00:00:00', '2023-04-23 00:00:00'),
 (4, 'Святой Франциск Ассизский в Национальной галерее', 'Святой Франциск Ассизский', '2023-05-06 00:00:00', '2023-07-30 00:00:00'),
 (5, 'Игорь Грабарь. К 150-летию со дня рождения', 'Творчество Игоря Грабаря', '2022-11-18 00:00:00', '2023-03-12 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `extern_RSS`
+--
+
+CREATE TABLE `extern_RSS` (
+  `name` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
+  `URL` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -216,6 +227,7 @@ INSERT INTO `Paintings` (`id`, `Title`, `Era`, `Century`, `Year_`, `Status`, `Pi
 --
 
 CREATE TABLE `RSS` (
+  `id` int NOT NULL,
   `Title` varchar(255) NOT NULL,
   `Author` varchar(255) NOT NULL,
   `Source` longtext CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
@@ -299,6 +311,12 @@ ALTER TABLE `Organizations`
 -- Индексы таблицы `Paintings`
 --
 ALTER TABLE `Paintings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `RSS`
+--
+ALTER TABLE `RSS`
   ADD PRIMARY KEY (`id`);
 
 --
